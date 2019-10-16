@@ -1,0 +1,195 @@
+KFixpal 0.9.9
+
+By Kronoman
+
+Copyright (c) 2002-2007 Kronoman
+Re-released in 2019
+
+In loving memory of my father.
+Made in Argentina.
+Distributed under The MIT License
+
+*NOTICE*
+For build instructions (compilation, etc) refer to INSTALL file.
+
+*NOTICE*
+Please read *ALL* this file before start the conversion of your images.
+
+*NOTICE - WARNING*
+ALWAYS MAKE A BACKUP OF YOUR IMAGES BEFORE START THE CONVERSION!
+REMEMBER THAT THE INPUT FILES ARE OVERWRITEN WITH THE OUTPUT FILES.
+
+Contact
+-------
+
+For contact me at gitHub: https://github.com/alvarogonzalezferrer
+
+What is this?
+-------------
+
+This tool let you determine a single 8 bit (256 colors) palette
+for use with a bunch of images that has different palettes. 
+Also, it lets you edit the palette before apply them, 
+or convert several images to a palette that you already have.
+
+How does it works?
+------------------
+
+It takes a bunch of images, loads them, and scan every pixel
+to count the times of use of that color.
+After that, It sorts the colors most used, takes the most 256
+used colors, and then, converts each image to that new palette.
+
+Why?
+----
+
+I made this program because a big storm burned my modem (and TV, and VCR, 
+and fax, etc), and I need a program to do this and has I can't download it,
+I made it for myself for my Linux box.
+Also, it seems that there isn't a open source tool for Linux that could do this.
+I made it thinking on portability, so I don't use any weird optimization.
+For that, the program is a bit slow, but the results are pretty good,
+at least with the images that I tested it (a lot of them, in fact, I'm
+using this tool on my new games that I'm making right now).
+The source code is a little mess because I was in a hurry.
+
+--Added in 2007
+Note that this tool was done back when true color was not 
+the norm in games, is a bit dated for the current days,
+but well, there is people still using 8bpp, and that is good :P.
+I really don't use this tool anymore, because I moved
+to code true color games, but I enjoy retro gaming too.
+
+Instructions of use
+-------------------
+
+The program takes has parameter the files to convert.
+
+$ kfixpal [image(s)]
+
+You can use, for example (the $ represents your command line, don't put it)
+
+$ kfixpal *.pcx
+
+Or
+
+$ kfixpal image1.pcx image2.pcx
+
+When you load the images, you will see a dialog of configuration
+where you put certaint parameters to improve the conversion.
+The parameters are:
+
+"Color Reduction"
+This is for reducing the very similar colors (thus letting space for
+other colors that the other images can have).
+This gives the "distance" RGB where the color is considereg equal to another
+and counted as it. For example, if you put "1" here, a color of 0,0,0 and 0,0,1
+will be counted as the same color.
+If you put "0", the colors will be treated all as unique colors.
+Use big values when you have lots of similar colors (and want to loose some
+detail), and use lower values for keep the color details.
+Use small values when you have images with few colors each one.
+I often use a value of 1 or 2
+The values range from 0 to 63. 
+Try several times with different values to get the desired effect.
+
+"Read Area"
+This is for when you use very big and smooth images that has
+big zones of the same or similar color (like a big texture, or landscape
+from top view, etc).
+When counts colours, the inner loop takes pixels every X,Y value.
+With a value of 1,1, it will take in count all the pixels of the image.
+You should always let it on X+= 1 and Y += 1, but for big images with
+very similar colours, you could put a value of 2, or more.
+The results may vary very much if you change this values.
+The values must be >= 1
+
+"Custom Palette from file"
+This is if you already have a image with a palette that you want to
+use instead of calculating the palette.
+Press the "..." button to browse for the file.
+If you fill the field with a correct image, the other parameters will be ignored.
+
+"Edit palette before apply"
+If you let this checked, after the count of colours you will have the option
+to edit each single color of the palette to fine tune your output palette.
+
+When you done with this, press the "START" button to continue.
+Then, the counting of colours and making of the palette will start (if you
+put a custom palette, this will be skipped)
+
+If you checked the "Edit palette" you will see a dialog where you can
+edit the generated palette.
+The dialog has a colour picker for choose the colour to edit.
+Click on it to change the selected colour.
+The dialog has 3 sliders for adjust the RGB values of the selected colour.
+The button "OK" accepts the palette and goes on.
+The "Re-configure" button takes you back to reconfigure the parameters
+previously mentioned. This is useful to play with the values until you find
+a palette that suits your needs.
+
+After this, the conversion will take place, and the program will exit.
+
+*VERY IMPORTANT* The input files will be overwritten, this mean that the new
+converted file will be saved OVER the original file!!
+Always make backups before using this!!! <- I MEAN IT! DO IT!
+
+Tips 'n tricks
+--------------
+
+- ALWAYS MAKE A BACKUP OF YOUR IMAGES BEFORE START THE CONVERSION!
+
+- REMEMBER THAT THE INPUT FILES ARE OVERWRITEN WITH THE OUTPUT FILES.
+
+- I often use The GIMP first to reduce the images to a 256 or 128 palette,
+  and then, I unify the palette using KFixpal.
+  For this, I use the "Image -> Mode -> Indexed Colour" option, and
+  then, I don't select dithering, and I use the "Optimun Palette" option.
+  Sometimes, I even reduce the image to 32 or 64 colour, depending of
+  what kind of image I'm using.
+  
+- Try to don't use dithering on your images for best effect conversion.
+
+- Try to avoid gradients.
+
+- When you design your images, try to stick to certain range of colours.
+
+- When there is a electric storm, unplug your modem! 
+  I give you this advice from first hand... :)
+
+Thanks
+------
+
+Well, I should thank a lot of people, but as far as I remember right now...
+- To my father and mother (my first 386!!)
+- To F3N1X, for my copy of Linux!
+- To the GNU guys, for those excellent software. (and way of life)
+- In special, to all the people that work in/for/with Allegro, 
+  the coolest library that I ever known... :^)
+- For those about the rock we salute you!
+- Bah... thanks to everybody!
+
+License
+-------
+
+Distributed under The MIT License
+
+Permission is hereby granted, free of charge,
+to any person obtaining a copy of this software
+and associated documentation files (the "Software"),
+to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software
+is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice
+shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH
+THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

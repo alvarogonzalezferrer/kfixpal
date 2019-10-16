@@ -1,0 +1,10 @@
+Generic build and install instructions.
+
+You need at least a GNU GCC compatible compiler, such as GNU GCC, DJGPP or MingW32.
+You may need other libraries such as Allegro.
+
+To build the project, just type 'make'.
+
+To see other targets for make, such as installing, type 'make help'.
+
+To check the status, type 'make status'.

@@ -1,0 +1,16 @@
+Changes
+-------
+
+Version 0.9.9
+    6-August-2007
+    Fixed a compilation bug with new Allegro. Thanks to Lord Death for reporting!
+    Using a new version of the AlMake makefile. http://almake.sourceforge.net/
+    Other minor bugfixes, like screen mode defaults to windowed now.
+	Source code with proper identation now =).
+
+Version 0.9.8
+    Added this file.
+    Added a documentation explainin the algorithm.
+    Still trying to clean up the code (is a mess, was dode really in a hurry, and never intended to be released to the public).
+    Fixed a bug with Mingw32 compilation.
+

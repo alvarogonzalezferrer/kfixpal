@@ -1,0 +1,18 @@
+KFixpal
+
+Algorithm used to quantize and convert the images.
+
+Developed by Kronoman.
+In loving memory of my father.
+
+
+The algorithm does basically the following:
+
+- Load all images, take the biggest one, and save its size.
+  This is used to compensate the size of smaller images (if there is a single big image and many small ones, the big image's colors 'weights' more if this compensation is not done).
+  
+- Load each image, scan each pixel and put each new color in a list ; if the color is already in the list, increase the color count (this increase takes in account the surface (w*h) of the current image and the surface of the biggest image).
+
+- Take the first 256 colors of the list of colors used, and generate a new palette. Sort the colors to make the palette look nicer (optional).
+
+- Convert all images to the new palette, and save them. Done.
